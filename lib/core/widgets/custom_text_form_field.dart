@@ -77,10 +77,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                           width: 20,
                           height: 20,
                           fit: BoxFit.scaleDown,
-                          colorFilter: const ColorFilter.mode(
-                            AppColor.bodyText,
-                            BlendMode.srcIn,
-                          ),
+                         
                         ),
                       )
                     : null),
