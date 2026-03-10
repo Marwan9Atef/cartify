@@ -23,17 +23,20 @@ class AuthHeader extends StatelessWidget {
             gradient: AppColor.primaryGradient,
         ),
       child: SafeArea(child: Column(
+   
         children: [
           SvgPicture.asset(logo),
         const SizedBox(height: 10),
             Text(
               title,
               style: AppStyles.styleBold20(color: AppColor.white),
+         
             ),
             const SizedBox(height: 3),
             Text(
             subtitle,
             style: AppStyles.styleRegular14(color: AppColor.white),
+            textAlign: TextAlign.center,
           ),
         ],
       )),

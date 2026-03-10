@@ -14,11 +14,11 @@ class LoginForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
 
       children: [
-      Text("Email Address",style: AppStyles.styleRegular14(),),
+      Text("Email Address",style: AppStyles.styleMedium14(),),
       const SizedBox(height: 8,),
       CustomTextFormField(textInputType: TextInputType.emailAddress, hintText: "Email Address",prefixIconPath: AppAssets.mailIcon,),
       const SizedBox(height: 20,),
-      Text("Password",style: AppStyles.styleRegular14(),),
+      Text("Password",style: AppStyles.styleMedium14(),),
       const SizedBox(height: 8,),
       CustomTextFormField(textInputType: TextInputType.visiblePassword, hintText: "Password",prefixIconPath: AppAssets.passwordIcon,isPassword: true,),
 

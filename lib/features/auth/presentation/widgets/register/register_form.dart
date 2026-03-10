@@ -14,19 +14,19 @@ class RegisterForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
 
       children: [
-         Text("Full Name",style: AppStyles.styleRegular14(),),
+         Text("Full Name",style: AppStyles.styleMedium14(),),
       const SizedBox(height: 8,),
       CustomTextFormField(textInputType: TextInputType.name, hintText: "Full Name",prefixIconPath: AppAssets.nameIcon,),
        const SizedBox(height: 20,),
-      Text("Email Address",style: AppStyles.styleRegular14(),),
+      Text("Email Address",style: AppStyles.styleMedium14(),),
       const SizedBox(height: 8,),
       CustomTextFormField(textInputType: TextInputType.emailAddress, hintText: "Email Address",prefixIconPath: AppAssets.mailIcon,),
       const SizedBox(height: 20,),
-      Text("Phone Number",style: AppStyles.styleRegular14(),),
+      Text("Phone Number",style: AppStyles.styleMedium14(),),
       const SizedBox(height: 8,),
       CustomTextFormField(textInputType: TextInputType.phone, hintText: "Phone Number",prefixIconPath: AppAssets.phoneIcon,),
       const SizedBox(height: 20,),
-      Text("Password",style: AppStyles.styleRegular14(),),
+      Text("Password",style: AppStyles.styleMedium14(),),
       const SizedBox(height: 8,),
       CustomTextFormField(textInputType: TextInputType.visiblePassword, hintText: "Password",prefixIconPath: AppAssets.passwordIcon,isPassword: true,),
 

@@ -1,6 +1,8 @@
 import 'package:cartify/core/routes/route_center.dart';
 import 'package:cartify/features/auth/presentation/screens/login_screen.dart';
+import 'package:cartify/features/auth/presentation/screens/otp_screen.dart';
 import 'package:cartify/features/auth/presentation/screens/register_screen.dart';
+import 'package:cartify/features/auth/presentation/screens/send_email_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,16 +24,36 @@ class AppRouter {
           );
         },
       ),
-        GoRoute(
-        path: RouteCenter.register,
-        pageBuilder: (context, state) {
-          return CustomTransitionPage(
-            child: const RegisterScreen(),
-            transitionsBuilder: (context, animation, secondary, child) =>
-                FadeTransition(opacity: animation, child: child),
-          );
-        },
-      ),
+          GoRoute(
+          path: RouteCenter.register,
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+              child: const RegisterScreen(),
+              transitionsBuilder: (context, animation, secondary, child) =>
+                  FadeTransition(opacity: animation, child: child),
+            );
+          },
+        ),
+              GoRoute(
+          path: RouteCenter.sendToEmail,
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+              child: const SendEmailScreen(),
+              transitionsBuilder: (context, animation, secondary, child) =>
+                  FadeTransition(opacity: animation, child: child),
+            );
+          },
+        ),
+         GoRoute(
+          path: RouteCenter.otp,
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+              child: const OtpScreen(),
+              transitionsBuilder: (context, animation, secondary, child) =>
+                  FadeTransition(opacity: animation, child: child),
+            );
+          },
+        ),
     ],
   );
 }

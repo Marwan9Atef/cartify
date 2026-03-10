@@ -9,4 +9,6 @@ abstract class AppAssets {
   static const String passwordIcon = '$_iconsPath/password.svg';
   static const String phoneIcon = '$_iconsPath/phone.svg';
   static const String secondLogoIcon = '$_iconsPath/secondLogo.svg';
+  static const String emailLogoIcon = '$_iconsPath/emailIogo.svg';
+  static const String verificationIcon = '$_iconsPath/verificationIcon.svg';
 }
