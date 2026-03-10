@@ -1,4 +1,4 @@
-import 'package:cartify/core/assets/app_assets.dart';
+import 'package:cartify/core/centeral_assets/app_assets.dart';
 import 'package:cartify/features/auth/presentation/widgets/auth_header.dart';
 import 'package:cartify/features/auth/presentation/widgets/send_email/send_email_button.dart';
 import 'package:cartify/features/auth/presentation/widgets/send_email/send_email_form.dart';
