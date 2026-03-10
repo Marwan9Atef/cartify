@@ -1,3 +1,6 @@
+import 'package:cartify/core/constant/api_constant.dart';
+import 'package:cartify/core/di/service_locator.dart';
+import 'package:cartify/features/auth/data/service/local/auth_local_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -9,7 +12,7 @@ class ApiClient {
   ApiClient() {
     _dio = Dio(
       BaseOptions(
-        baseUrl: '', // TODO: set your base URL
+        baseUrl: ApiConstant.baseUrl,
         connectTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
         sendTimeout: const Duration(seconds: 30),
@@ -24,7 +27,10 @@ class ApiClient {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          // TODO: inject token from local storage when auth is implemented
+          final token = await serviceLocator<AuthLocalService>().getAccessToken();
+          if (token != null) {
+            options.headers['Authorization'] = 'Bearer $token';
+          }
           handler.next(options);
         },
       ),
