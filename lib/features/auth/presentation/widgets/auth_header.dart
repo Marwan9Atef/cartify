@@ -17,7 +17,7 @@ class AuthHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.only(top: 20, bottom: 20),
       width: double.infinity,
         decoration: BoxDecoration(
             gradient: AppColor.primaryGradient,

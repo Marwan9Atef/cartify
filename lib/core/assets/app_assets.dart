@@ -11,4 +11,5 @@ abstract class AppAssets {
   static const String secondLogoIcon = '$_iconsPath/secondLogo.svg';
   static const String emailLogoIcon = '$_iconsPath/emailIogo.svg';
   static const String verificationIcon = '$_iconsPath/verificationIcon.svg';
+  static const String lockIcon = '$_iconsPath/lockIcon.svg';
 }
