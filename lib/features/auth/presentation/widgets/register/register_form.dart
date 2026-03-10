@@ -1,10 +1,22 @@
 import 'package:cartify/core/centeral_assets/app_assets.dart';
 import 'package:cartify/core/theme/app_style.dart';
+import 'package:cartify/core/utils/validator.dart';
 import 'package:cartify/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class RegisterForm extends StatelessWidget {
-  const RegisterForm({super.key});
+  const RegisterForm({
+    super.key,
+    this.onNameSaved,
+    this.onEmailSaved,
+    this.onPhoneSaved,
+    this.onPasswordSaved,
+  });
+
+  final void Function(String?)? onNameSaved;
+  final void Function(String?)? onEmailSaved;
+  final void Function(String?)? onPhoneSaved;
+  final void Function(String?)? onPasswordSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -12,29 +24,48 @@ class RegisterForm extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-
-      children: [
-         Text("Full Name",style: AppStyles.styleMedium14(),),
-      const SizedBox(height: 8,),
-      CustomTextFormField(textInputType: TextInputType.name, hintText: "Full Name",prefixIconPath: AppAssets.nameIcon,),
-       const SizedBox(height: 20,),
-      Text("Email Address",style: AppStyles.styleMedium14(),),
-      const SizedBox(height: 8,),
-      CustomTextFormField(textInputType: TextInputType.emailAddress, hintText: "Email Address",prefixIconPath: AppAssets.mailIcon,),
-      const SizedBox(height: 20,),
-      Text("Phone Number",style: AppStyles.styleMedium14(),),
-      const SizedBox(height: 8,),
-      CustomTextFormField(textInputType: TextInputType.phone, hintText: "Phone Number",prefixIconPath: AppAssets.phoneIcon,),
-      const SizedBox(height: 20,),
-      Text("Password",style: AppStyles.styleMedium14(),),
-      const SizedBox(height: 8,),
-      CustomTextFormField(textInputType: TextInputType.visiblePassword, hintText: "Password",prefixIconPath: AppAssets.passwordIcon,isPassword: true,),
-
-
-      
-      
-      ],
-      
+        children: [
+          Text("Full Name", style: AppStyles.styleMedium14()),
+          const SizedBox(height: 8),
+          CustomTextFormField(
+            textInputType: TextInputType.name,
+            hintText: "Full Name",
+            prefixIconPath: AppAssets.nameIcon,
+            validator: (value) => Validator.validateField(value, 'name'),
+            onSaved: onNameSaved,
+          ),
+          const SizedBox(height: 20),
+          Text("Email Address", style: AppStyles.styleMedium14()),
+          const SizedBox(height: 8),
+          CustomTextFormField(
+            textInputType: TextInputType.emailAddress,
+            hintText: "Email Address",
+            prefixIconPath: AppAssets.mailIcon,
+            validator: (value) => Validator.validateField(value, 'email'),
+            onSaved: onEmailSaved,
+          ),
+          const SizedBox(height: 20),
+          Text("Phone Number", style: AppStyles.styleMedium14()),
+          const SizedBox(height: 8),
+          CustomTextFormField(
+            textInputType: TextInputType.phone,
+            hintText: "Phone Number",
+            prefixIconPath: AppAssets.phoneIcon,
+            validator: (value) => Validator.validateField(value, 'phone'),
+            onSaved: onPhoneSaved,
+          ),
+          const SizedBox(height: 20),
+          Text("Password", style: AppStyles.styleMedium14()),
+          const SizedBox(height: 8),
+          CustomTextFormField(
+            textInputType: TextInputType.visiblePassword,
+            hintText: "Password",
+            prefixIconPath: AppAssets.passwordIcon,
+            isPassword: true,
+            validator: (value) => Validator.validateField(value, 'password'),
+            onSaved: onPasswordSaved,
+          ),
+        ],
       ),
     );
   }

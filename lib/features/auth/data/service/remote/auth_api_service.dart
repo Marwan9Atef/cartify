@@ -4,6 +4,8 @@ import 'package:cartify/core/error/app_exception.dart';
 import 'package:cartify/core/network/api_client.dart';
 import 'package:cartify/features/auth/data/models/login_request_model.dart';
 import 'package:cartify/features/auth/data/models/login_response_model.dart';
+import 'package:cartify/features/auth/data/models/register_request_model.dart';
+import 'package:cartify/features/auth/data/models/register_response_model.dart';
 import 'package:cartify/features/auth/data/service/remote/auth_remote_service.dart';
 
 @LazySingleton(as: AuthRemoteService)
@@ -23,6 +25,20 @@ class AuthApiService implements AuthRemoteService {
     } catch (exception) {
       final message = extractDioErrorMessage(exception);
       throw RemoteException(message ?? 'An error occurred during login');
+    }
+  }
+
+  @override
+  Future<RegisterResponseModel> register(RegisterRequestModel registerRequestModel) async {
+    try {
+      final response = await _apiClient.post(
+        ApiConstant.registerEndpoint,
+        data: registerRequestModel.toJson(),
+      );
+      return RegisterResponseModel.fromJson(response.data);
+    } catch (exception) {
+      final message = extractDioErrorMessage(exception);
+      throw RemoteException(message ?? 'An error occurred during registration');
     }
   }
 }

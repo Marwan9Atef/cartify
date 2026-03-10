@@ -4,6 +4,8 @@ import 'package:cartify/core/error/app_exception.dart';
 import 'package:cartify/core/failure/failure.dart';
 import 'package:cartify/features/auth/data/models/login_request_model.dart';
 import 'package:cartify/features/auth/data/models/login_response_model.dart';
+import 'package:cartify/features/auth/data/models/register_request_model.dart';
+import 'package:cartify/features/auth/data/models/register_response_model.dart';
 import 'package:cartify/features/auth/data/service/local/auth_local_service.dart';
 import 'package:cartify/features/auth/data/service/remote/auth_remote_service.dart';
 import 'package:cartify/features/auth/domain/repo/auth_repo.dart';
@@ -21,6 +23,19 @@ class AuthRepoImpl implements AuthRepo {
   ) async {
     try {
       final response = await _remoteService.login(loginRequestModel);
+      await _localService.setToken(response.token);
+      return Right(response);
+    } on AppException catch (exception) {
+      return Left(Failure(exception.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, RegisterResponseModel>> register(
+    RegisterRequestModel registerRequestModel,
+  ) async {
+    try {
+      final response = await _remoteService.register(registerRequestModel);
       await _localService.setToken(response.token);
       return Right(response);
     } on AppException catch (exception) {

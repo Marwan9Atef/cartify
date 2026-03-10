@@ -23,6 +23,8 @@ import 'package:cartify/features/auth/data/service/remote/auth_remote_service.da
 import 'package:cartify/features/auth/domain/repo/auth_repo.dart' as _i27;
 import 'package:cartify/features/auth/presentation/cubit/login/login_cubit.dart'
     as _i235;
+import 'package:cartify/features/auth/presentation/cubit/register/register_cubit.dart'
+    as _i952;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
@@ -59,6 +61,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i235.LoginCubit>(
       () => _i235.LoginCubit(authRepo: gh<_i27.AuthRepo>()),
+    );
+    gh.factory<_i952.RegisterCubit>(
+      () => _i952.RegisterCubit(authRepo: gh<_i27.AuthRepo>()),
     );
     return this;
   }

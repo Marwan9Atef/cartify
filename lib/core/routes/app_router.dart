@@ -1,6 +1,7 @@
 import 'package:cartify/core/di/service_locator.dart';
 import 'package:cartify/core/routes/route_center.dart';
 import 'package:cartify/features/auth/presentation/cubit/login/login_cubit.dart';
+import 'package:cartify/features/auth/presentation/cubit/register/register_cubit.dart';
 import 'package:cartify/features/auth/presentation/screens/login_screen.dart';
 import 'package:cartify/features/auth/presentation/screens/otp_screen.dart';
 import 'package:cartify/features/auth/presentation/screens/register_screen.dart';
@@ -34,7 +35,10 @@ class AppRouter {
         path: RouteCenter.register,
         pageBuilder: (context, state) {
           return CustomTransitionPage(
-            child: const RegisterScreen(),
+            child: BlocProvider(
+              create: (context) => serviceLocator<RegisterCubit>(),
+              child: const RegisterScreen(),
+            ),
             transitionsBuilder: (context, animation, secondary, child) =>
                 FadeTransition(opacity: animation, child: child),
           );
