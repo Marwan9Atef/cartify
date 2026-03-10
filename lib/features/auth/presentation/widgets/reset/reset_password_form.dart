@@ -1,4 +1,4 @@
-import 'package:cartify/core/assets/app_assets.dart';
+import 'package:cartify/core/centeral_assets/app_assets.dart';
 import 'package:cartify/core/theme/app_style.dart';
 import 'package:cartify/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
